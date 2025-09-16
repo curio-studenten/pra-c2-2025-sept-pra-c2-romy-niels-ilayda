@@ -32,10 +32,10 @@
                 {{ $breadcrumb ?? '' }}
             </ul>
 
-        </div>
+            <div class="row">
+                <x-footer/>
+            </div>
 
-        <div class="row">
-            <x-footer/>
         </div>
 
     </div>

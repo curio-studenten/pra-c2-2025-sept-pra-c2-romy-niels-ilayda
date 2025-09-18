@@ -18,6 +18,7 @@ Dit project werkt alleen als je Laragon 6 draait met PHP 8.1.x en MySQL 8.x. Geb
 2. Run in cmd `composer install`
 3. Kopieer .env.example naar .env (niet hernoemen, want de .example moet je voor je teamgenoten blijven bestaan)
 4. Run `php artisan key:generate`
+5. 
 6. Run `php artisan migrate`
 7. Als het script vraagt of er een database aangemaakt moet worden, kies dan yes.
 8. Nu staat de structuur van je database. Je kunt nu de testdata importeren om fatsoenlijk met de app te werken:

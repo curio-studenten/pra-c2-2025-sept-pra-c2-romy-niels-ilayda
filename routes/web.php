@@ -33,6 +33,7 @@ use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ContactController;
 
 // Homepage
 Route::get('/', function () {
@@ -43,7 +44,12 @@ Route::get('/', function () {
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);
 
-Route::get('/datafeeds/{brand_slug}.xml', [RedirectController::class, 'datafeed']);
+Route::get('/datafeeds/{brand_slug}.xml', [RedirectController::class, 'datafeed']); 
+
+Route::get(
+    '/contact',
+    [ContactController::class, 'index']
+)->name('contact');
 
 // Locale routes
 Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale']);

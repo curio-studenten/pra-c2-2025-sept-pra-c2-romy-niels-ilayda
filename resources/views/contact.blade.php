@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <x-head/>
     <title>contact</title>
 </head>
-<body>
-    <div class="contact-formulier">
-        <h1>contacts</h1>
-        <div class="name-type" >
-            <label for="fullName">full name</label>
-            <input type="text" id="fullName" name="fullName">
-        </div>
-        <div class="email-type">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-        </div>
-        <div class="message-type">
-            <label for="message">message</label>
-            <input type="text" id="message" name="message">
-        </div>
+    <body>
+    <div class="contact-container">
+        <h1>Contact</h1>
+        <form class="contact-form">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Verstuur</button>
+        </form>
     </div>
-</body>
+    </body>
 </html>

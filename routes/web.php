@@ -51,6 +51,8 @@ Route::get(
     [ContactController::class, 'index']
 )->name('contact');
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 // Locale routes
 Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale']);
 

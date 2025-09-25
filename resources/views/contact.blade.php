@@ -7,17 +7,18 @@
     <body>
     <div class="contact-container">
         <h1>Contact</h1>
-        <form class="contact-form">
-        <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname" required>
+        <form action="{{ route('contact.store') }}" method="POST">
+            @csrf
+            <label for="fullname">Naam:</label>
+            <input type="text" id="fullname" name="fullname" required><br><br>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br><br>
 
-        <label for="message">Bericht</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
+            <label for="message">Bericht:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
 
-        <button type="submit">Verstuur</button>
+            <button type="submit">Versturen</button>
         </form>
     </div>
     </body>

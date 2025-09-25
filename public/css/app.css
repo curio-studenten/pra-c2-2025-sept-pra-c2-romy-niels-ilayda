@@ -6,6 +6,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
     --blue: #3490dc;
     --indigo: #6574cd;
@@ -78,6 +79,7 @@ hr {
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 p {
@@ -158,6 +160,7 @@ a {
     color: #3490dc;
     text-decoration: none;
     background-color: transparent;
+    font-weight: bolder;
 }
 a:hover {
     color: #1d68a7;

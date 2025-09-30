@@ -28,3 +28,4 @@ public function up(): void
         Schema::dropIfExists('contact_messages');
     }
 };
+    

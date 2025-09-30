@@ -14,9 +14,4 @@ class Brand extends Model
         $name_url_encoded = str_replace('/','',$this->name);
         return $name_url_encoded;
     }
-
-    public function manuals()
-    {
-        return $this->hasMany(Manual::class);
-    }
 }

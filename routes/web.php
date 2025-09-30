@@ -37,12 +37,8 @@ use App\Http\Controllers\ContactController;
 
 // Homepage
 Route::get('/', function () {
-    $brands = Brand::all()->sortBy('name');
-    $topBrands = \App\Models\Brand::withCount('manuals')
-        ->orderByDesc('manuals_count')
-        ->take(10)
-        ->get();
-    return view('pages.homepage', compact('brands', 'topBrands'));
+    $brands = Brand::orderBy('name')->get();
+    return view('pages.homepage', ['brands' => $brands]);
 })->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);

@@ -13,6 +13,17 @@
     </h1>
 
 
+    <h2>Top 10 Brands</h2>
+    <ul>
+        @foreach($topBrands as $brand)
+            <li>
+                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
+                <span style="color: #888;">({{ $brand->manuals_count }} manuals)</span>
+            </li>
+        @endforeach
+    </ul>
+
+
     <?php
     $size = count($brands);
     $columns = 3;

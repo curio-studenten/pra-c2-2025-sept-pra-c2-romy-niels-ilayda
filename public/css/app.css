@@ -74,12 +74,16 @@ hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-weight: 900;
+}
+title{
+    font-weight: 900;
 }
 
 p {
@@ -109,6 +113,7 @@ ul,
 dl {
     margin-top: 0;
     margin-bottom: 1rem;
+    font-weight: 900;
 }
 
 ol ol,
@@ -116,6 +121,10 @@ ul ul,
 ol ul,
 ul ol {
     margin-bottom: 0;
+    font-weight: 900;
+}
+li{
+    font-weight: 900;
 }
 
 dt {
@@ -160,8 +169,9 @@ a {
     color: #3490dc;
     text-decoration: none;
     background-color: transparent;
-    font-weight: bolder;
+    font-weight: 900;
 }
+
 a:hover {
     color: #1d68a7;
     text-decoration: underline;
@@ -548,6 +558,7 @@ pre code {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+
 }
 
 @media (min-width: 576px) {
@@ -597,6 +608,7 @@ pre code {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+
 }
 
 .col {
@@ -1824,17 +1836,20 @@ pre code {
 .table-light,
 .table-light > th,
 .table-light > td {
-    background-color: #fdfdfe;
+    background-color: #cecece;
+
 }
 .table-light th,
 .table-light td,
 .table-light thead th,
 .table-light tbody + tbody {
-    border-color: #fbfcfc;
+    background-color: #cecece;
+
 }
 
 .table-hover .table-light:hover {
-    background-color: #ececf6;
+    background-color: #cecece;
+
 }
 .table-hover .table-light:hover > td,
 .table-hover .table-light:hover > th {

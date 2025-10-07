@@ -9,9 +9,13 @@ class Manual extends Model
 {
     use HasFactory;
 
-    // Returns the filesize in a human readable format
+    // Voeg deze relatie toe
+   public function brand()
+{
+    return $this->belongsTo(Brand::class);
+}
+    // Je bestaande methods blijven hetzelfde...
     public function getFilesizeHumanReadableAttribute(){
-
         $size = $this->filesize;
         $unit = "";
 
@@ -27,30 +31,13 @@ class Manual extends Model
         return $value;
     }
 
-    // Returns true if the file is locally available
     public function getLocallyAvailableAttribute()
     {
-        // As of 13-11-2017 we no longer link to local files, so we can cancel the TransIP server
         return false;
-
-        /* $filename = $this->filename;
-
-        return !empty($filename); */
     }
 
     public function getUrlAttribute()
     {
         return $this->originUrl;
-
-        /* $filename = $this->filename;
-        $originUrl = $this->originUrl;
-
-        // If it's downloaded a filename is available, link to our own CDN
-        if( !empty($filename ) )
-            $url = 'http://cdn.downloadyourmanual.com/'.$filename;
-        else	// If it's not download, link to the origin
-            $url = $originUrl;
-
-        return $url; */
     }
 }

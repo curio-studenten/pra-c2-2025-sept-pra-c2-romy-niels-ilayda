@@ -36,15 +36,12 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ContactController;
 
 // Homepage
-Route::get('/', function () {
-    $brands = Brand::orderBy('name')->get();
-    return view('pages.homepage', ['brands' => $brands]);
-})->name('home');
+Route::get('/', [BrandController::class, 'index'])->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);
 
-Route::get('/datafeeds/{brand_slug}.xml', [RedirectController::class, 'datafeed']); 
+Route::get('/datafeeds/{brand_slug}.xml', [RedirectController::class, 'datafeed']);
 
 Route::get(
     '/contact',

@@ -61,3 +61,6 @@ Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 's
 
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
+
+// Route voor alle merken pagina
+Route::get('/brands', [BrandController::class, 'allBrands'])->name('brands.all');

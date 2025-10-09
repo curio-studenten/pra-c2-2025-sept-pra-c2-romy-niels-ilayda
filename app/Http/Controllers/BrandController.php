@@ -23,6 +23,26 @@ class BrandController extends Controller
         return view('pages.homepage', compact('brands', 'topManuals'));
     }
 
+    // NIEUW: Alle merken pagina met alfabetisch overzicht
+    public function allBrands()
+    {
+        // Haal alle merken op, gesorteerd op naam
+        $brands = Brand::orderBy('name')->get();
+
+        // Groepeer merken per eerste letter
+        $brandsByLetter = $brands->groupBy(function($brand) {
+            return strtoupper(substr($brand->name, 0, 1));
+        });
+
+        // Maak een array van alle letters die voorkomen
+        $availableLetters = $brandsByLetter->keys()->sort()->toArray();
+
+        return view('pages.brands_list', [
+            'brandsByLetter' => $brandsByLetter,
+            'availableLetters' => $availableLetters
+        ]);
+    }
+
     // Merk pagina met ALLE manuals + top 5 van dat merk
     public function show($brand_id, $brand_slug)
     {
@@ -38,9 +58,6 @@ class BrandController extends Controller
             ->orderByDesc('manualcounter') // Hoogste eerst
             ->take(5)
             ->get();
-
-        // Debug: check hoeveel er zijn
-        // dd($topManuals);
 
         return view('pages.manual_list', compact('brand', 'manuals', 'topManuals'));
     }

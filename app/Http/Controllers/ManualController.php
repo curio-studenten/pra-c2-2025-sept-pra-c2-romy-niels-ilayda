@@ -12,8 +12,8 @@ class ManualController extends Controller
     {
         $brand = Brand::findOrFail($brand_id);
 
-        // Haal manual op inclusief type-relatie
-        $manual = Manual::with('type')->findOrFail($manual_id);
+        // Haal manual op (zonder type-relatie want type is nu gewoon een kolom)
+        $manual = Manual::findOrFail($manual_id);
 
         // Increment de counter
         $manual->increment('manualcounter');

@@ -10,7 +10,7 @@
             </a>
         </li>
         <li>
-            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/"  alt="Type '{{ $manual->type->name }}'"  title="Type '{{ $manual->type->name }}'">   {{ $manual->type->name }}
+            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/"  alt="Type '{{ $manual->type }}'"  title="Type '{{ $manual->type }}'">   {{ $manual->type }}
             </a>
         </li>
         <li>
@@ -19,7 +19,7 @@
         </li>
     </x-slot:breadcrumb>
 
-    <h1>{{ $brand->name }} - {{ $manual->type->name }} - {{ $manual->name }}</h1>
+    <h1>{{ $brand->name }} - {{ $manual->type }} - {{ $manual->name }}</h1>
 
     @if ($manual->locally_available)
         <iframe src="{{ $manual->url }}" width="780" height="600" frameborder="0" marginheight="0" marginwidth="0">
@@ -28,10 +28,6 @@
                 Click here to download the manual
             </a>
         </iframe>
-    @else
-        <a href="{{ $manual->url }}" target="_blank" alt="Download your manual here" title="Download your manual here">
-            Click here to download the manual
-        </a>
     @endif
 
 </x-layouts.app>

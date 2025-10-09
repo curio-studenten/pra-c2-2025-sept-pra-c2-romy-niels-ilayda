@@ -16,10 +16,7 @@ class Manual extends Model
     }
 
     // Relatie naar Type
-    public function type()
-    {
-        return $this->belongsTo(Type::class); // Pas Type::class aan als jouw type model anders heet
-    }
+
 
     // Je bestaande methods blijven hetzelfde...
     public function getFilesizeHumanReadableAttribute()

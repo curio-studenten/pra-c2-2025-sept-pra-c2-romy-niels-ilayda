@@ -9,21 +9,29 @@ class Manual extends Model
 {
     use HasFactory;
 
-    // Voeg deze relatie toe
-   public function brand()
-{
-    return $this->belongsTo(Brand::class);
-}
+    // Relatie naar Brand
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    // Relatie naar Type
+    public function type()
+    {
+        return $this->belongsTo(Type::class); // Pas Type::class aan als jouw type model anders heet
+    }
+
     // Je bestaande methods blijven hetzelfde...
-    public function getFilesizeHumanReadableAttribute(){
+    public function getFilesizeHumanReadableAttribute()
+    {
         $size = $this->filesize;
         $unit = "";
 
-        if( (!$unit && $size >= 1<<30) || $unit == "GB")
+        if ((!$unit && $size >= 1<<30) || $unit == "GB")
             $value = number_format($size/(1<<30),2)."GB";
-        elseif( (!$unit && $size >= 1<<20) || $unit == "MB")
+        elseif ((!$unit && $size >= 1<<20) || $unit == "MB")
             $value = number_format($size/(1<<20),2)."MB";
-        elseif( (!$unit && $size >= 1<<10) || $unit == "KB")
+        elseif ((!$unit && $size >= 1<<10) || $unit == "KB")
             $value = number_format($size/(1<<10),2)."KB";
         else
             $value = number_format($size)." bytes";

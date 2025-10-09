@@ -12,6 +12,19 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
+
+        @foreach ($manuals as $manual)
+
+            @if ($manual->locally_available)
+                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+                ({{$manual->filesize_human_readable}})
+            @else
+                <button><a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a></button>
+            @endif
+
+            <br />
+        @endforeach
+
   {{-- Top 5 populairste handleidingen van dit merk --}}
 @if(isset($topManuals) && $topManuals->count() > 0)
     <div class="mb-4">
@@ -26,6 +39,7 @@
                             </a>
                         </li>
                     @endforeach
+
                 </ol>
             </div>
         </div>

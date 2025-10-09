@@ -11,12 +11,14 @@ class ManualController extends Controller
     public function show($brand_id, $brand_slug, $manual_id)
     {
         $brand = Brand::findOrFail($brand_id);
-        $manual = Manual::findOrFail($manual_id);
+
+        // Haal manual op inclusief type-relatie
+        $manual = Manual::with('type')->findOrFail($manual_id);
 
         // Increment de counter
         $manual->increment('manualcounter');
 
-        return view('pages/manual_view', [
+        return view('pages.manual_view', [
             "manual" => $manual,
             "brand" => $brand,
         ]);

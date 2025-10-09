@@ -16,7 +16,7 @@ class BrandController extends Controller
 
         // Haal top 10 populairste manuals op
         $topManuals = Manual::with('brand')
-            ->orderBy('manualcounter', 'desc')
+            ->orderByDesc('manualcounter') // Desc zodat hoogste eerst
             ->take(10)
             ->get();
 
@@ -35,9 +35,12 @@ class BrandController extends Controller
 
         // Top 5 populairste manuals van dit merk
         $topManuals = Manual::where('brand_id', $brand_id)
-            ->orderBy('manualcounter', 'desc')
+            ->orderByDesc('manualcounter') // Hoogste eerst
             ->take(5)
             ->get();
+
+        // Debug: check hoeveel er zijn
+        // dd($topManuals);
 
         return view('pages.manual_list', compact('brand', 'manuals', 'topManuals'));
     }
